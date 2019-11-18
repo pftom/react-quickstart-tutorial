@@ -1,5 +1,11 @@
 name: React 快速入门教程
-description: ''
+description: >-
+  React （也被称为 React.js 或者 ReactJS）是一个用于构建用户界面的 JavaScript 库。起源于 Facebook
+  内部项目，最初用来架设 Instagram 的网站，并于 2013 年 5 月开源。React 性能较高，并且它的声明式、组件化特性让编写代码变得简单，随着
+  React 社区的发展，越来越多的人投入 React 的学习和开发，使得 React 不仅可以用来开发 Web
+  应用，还能开发桌面端应用，TV应用，VR应用，IoT应用等，因此 React 还具有一次学习，随处编写的特性。本教程将带你快速入门 React 开发，通过
+  20-30 分钟的学习，你不仅可以了解 React
+  的基础概念，而且能开发出一个待办事项小应用。看到这里你心动了嘛？心动不如行动，现在就跟着作者的步伐上路吧！
 topics:
   - React
 categories:
@@ -7,6 +13,28 @@ categories:
   - React
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
-created: 2019-11-18T14:01:30.319Z
-updated: 2019-11-18T14:01:30.319Z
-steps: []
+created: '2019-11-18T14:01:30.319Z'
+updated: 2019-11-18T14:24:43.663Z
+steps:
+  - name: 'Hello, World'
+    commit: a491123
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: 此时在终端项目目录下运行 `npm start` 会报错，因为我们的 `index.js` 还没有内容，我们现在马上加上下面的代码：
+          post: |-
+            保存代码，现在浏览器应该会显示如下内容：
+
+            ![](tuture-assets/image-d9453668ccb58bed.png)
+
+            一些准备就绪！
+
+            可能现在你对这些代码还不是很理解，没关系，我们马上开始激动人心的讲解过程！
+    explain:
+      pre: "首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n> **注意**\n> Windows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来安装 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA），我们在本教程中将通过  CRA 来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n为了开始接下来的学习，我们还需要做一点清理工作。现在 CRA 初始化的项目里有很多无关的内容，我们运行下面的代码清理一下：\n\n```Bash\n# 如果你还没有在终端进入项目根目录\ncd my-todolist\n\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
+  - name: JSX 语法
+    commit: 517171b
+    diff:
+      - file: src/index.js
+        display: true
