@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-19T11:46:54.482Z
+updated: 2019-11-19T12:25:44.070Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -521,3 +521,107 @@ steps:
         componentWillUnmount 是当组件从 DOM 节点中卸载之前会调用的方法，我们一般在这里面销毁定时器等会导致内存泄露的内容。
 
       post: "保存修改的代码，打开浏览器，我们应该会看到有一个内容更新的过程，在组件刚刚创建并挂载时，浏览器屏幕上应该是这样的：\n\n![](tuture-assets/image-da8fa8dd48f49c0a.png)\n\n当过了 2S 之后，我们可以看到熟悉的内容出现了：\n\n![](tuture-assets/image-1ccb228d6f96581c.png)\n\n恭喜你！成功创建了自己第一个交互式的组件！读到这里，你有可能有点累了，试着离开座椅，活动活动，喝杯咖啡，精彩稍后继续 \U0001F643\n\n"
+  - name: 列表和 Key
+    commit: 3c0e1f2
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: |-
+            ### 实战
+
+            我们运用这一节学到的列表和 Key 的知识来继续完成我们的待办事项应用。
+          post: >+
+            可以看到，我们将之前的手动获取元素渲染改成了使用内嵌表达式的方式，通过对 `this.state.todoList` 列表进行 map
+            操作生成Todo 组件列表，然后使用列表的 `index` 作为组件的 `key` 值，最后渲染。
+
+
+            保存内容，查看浏览器里面的内容，我们可以看到内容会有一个变化的过程，一开始是这样的：
+
+
+            ![](tuture-assets/image-e45392ef60489227.png)
+
+
+            你会发现一片空白，然后过了 2S 变成了下面这样：
+
+
+            ![](tuture-assets/image-1ccb228d6f96581c.png)
+
+
+            这是因为，一开始 `this.state.todoList` 在 constructor
+            中初始化时是空数组，所以一开始我们的浏览器中没有内容，当组件挂载之后，等待 2S，我们更新 `this.state.todoList`
+            内容，就看到浏览器里面获得了更新。
+
+    explain:
+      pre: >-
+        目前我们有四个 Todo 组件，我们是一个一个取值然后渲染，这显得有点原始，并且不可扩展，因为当我们的 todoList
+        数组很大的时候，一个一个获取就显得不切实际了，这个时候我们就需要循环介入了。
+
+
+        ### 渲染组件列表
+
+
+        JSX 允许我们渲染一个数组：
+
+
+        ```JavaScript
+
+        render() {
+            const todoList = ["图雀", "图雀写作工具", "图雀社区", "图雀文档"];
+            const renderTodoList = todoList.map((todo) => (
+              <Todo content={todo} />
+            ));
+            return (
+              <ul>
+                {renderTodoList}
+              </ul>
+            );
+          }
+        ```
+
+
+        我们通过对 todoList 进行 `map` 遍历，返回了一个 Todo 列表，然后使用 `{}` 插值语法渲染这个列表。
+
+
+        当然我们可以在 JSX 中使用表达式，所以上面的代码可以写成这样：
+
+
+        ```JavaScript
+
+        render() {
+            const todoList = ["图雀", "图雀写作工具", "图雀社区", "图雀文档"];
+            return (
+              <ul>
+                {todoList.map((todo) => (
+                  <Todo content={todo} />
+                ))}
+              </ul>
+            );
+          }
+        ```
+
+
+        ### 加上 Key
+
+
+        React 要求给列表中每个组件加上 `key` 属性，用于标志在列表中这个组件的身份，这样当列表内容进行了修改：增加或删除了元素时，React
+        可以根据 `key` 属性高效的对列表组件进行创建和销毁操作。
+
+
+        ```JavaScript
+
+        render() {
+            const todoList = ["图雀", "图雀写作工具", "图雀社区", "图雀文档"];
+            return (
+              <ul>
+                {todoList.map((todo, index) => (
+                  <Todo content={todo} key={index} />
+                ))}
+              </ul>
+            );
+          }
+        ```
+
+
+        这里我们使用了列表的 `index` 作为组件的 `key` 值，React 社区推荐的最佳实践方式是使用列表数据元素的唯一标识符作为
+        `key` 值，比如如果你的数据是来自数据库获取，那么列表元素数据的主键可以作为 `key`。
