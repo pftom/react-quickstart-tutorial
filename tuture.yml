@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-19T07:54:44.633Z
+updated: 2019-11-19T08:25:24.484Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -279,5 +279,92 @@ steps:
         ```
       post: >-
         你可能注意到我们之前定义的 todoList 数组现在还没有被使用，并且我们使用了四个相同的 Todo
-        组件，所以现在4个待办事项都是一样的内容，这有点单调，你可能会想，如果可以像调用函数那样对组件进行个性化定制就好了，你的想法是对的，我们将在下一节中引出
+        组件，所以现在4个待办事项都是一样的内容，这有点单调，你可能会想，如果可以像调用函数那样对组件进行个性化定制就好了，你的想法是对的！我们将在下一节中引出
         props，它允许你对组件进行个性化内容定制。
+  - name: Props
+    commit: 4e765ff
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: |+
+            ### 实战
+
+            我们运用这一节中学到的 Props 知识来继续完成我们的待办事项应用。
+
+          post: >-
+            注意到我们继续使用了之前定义的数组，然后给每个 Todo 组件分别赋值数组的每一项，最后在 Todo 组件中使用我们传递下来的
+            content 属性。
+
+
+            保存修改的内容，你应该可以在浏览器中看到如下的内容：
+
+
+            ![](tuture-assets/image-1ccb228d6f96581c.png)
+
+
+            可以看到，我们的内容又回来了，和我们之前在 [JSX](#jsx-语法)  中看到的内容一样，但是我们成功使用了组件来渲染接收到的
+            Props 内容。
+    explain:
+      pre: >+
+        React 为组件提供了 Props，允许使用组件时，给组件传入属性进行个性化渲染。
+
+
+        ### 函数式组件中使用 Props
+
+
+        函数式组件默认接收 props 参数，它是一个对象，用于保存父组件传递下来的内容：
+
+
+        ```JavaScript
+
+        function Todo(props) {
+          return (
+            <li>Hello, {props.content}</li>
+          )
+        }
+
+
+        <Todo content={"图雀"}/>
+
+        ```
+
+
+        我们给 Todo 函数式组件传递了一个 `content={"图雀"}` ，所有传递的属性都会合并进 `props` 对象中，然后传递给
+        Todo 组件，这里 props 对象是这样的 `props = { content: "图雀" }` ，比如我们再传递一个属性：
+
+
+        ```JavaScript
+
+        <Todo content={"图雀"} from={"图雀社区"} />
+
+        ```
+
+
+        最终 props 对象就会变成这样：`props={ content: "图雀", from: "图雀社区" }`。
+
+
+        > **注意**
+
+        > 传递给组件的 `key` 属性，在子组件中是取不到的，我们将在 “列表和 Key” 中详细讲解。
+
+
+        ### 类组件中使用 Props
+
+
+        类组件中基本和函数式组件中的 Props 保持一致，除了是通过 `this.props` 来获取父组件传递下来的属性内容：
+
+
+        ```JavaScript
+
+        class Todo extends React.Component {
+          render() {
+            return <li>Hello, {this.props.content}</li>;
+          }
+        }
+
+
+        <Todo content="图雀" />
+
+        ```
+
