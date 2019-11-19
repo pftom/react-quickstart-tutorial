@@ -33,10 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <ul>
-        <Todo content={this.state.todoList[0]} />
-        <Todo content={this.state.todoList[1]} />
-        <Todo content={this.state.todoList[2]} />
-        <Todo content={this.state.todoList[3]} />
+        {this.state.todoList.map((todo, index) => (
+          <Todo content={todo} key={index} />
+        ))}
       </ul>
     );
   }
