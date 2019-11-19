@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-18T14:24:43.663Z
+updated: 2019-11-19T07:09:06.878Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -23,18 +23,156 @@ steps:
         display: true
         explain:
           pre: 此时在终端项目目录下运行 `npm start` 会报错，因为我们的 `index.js` 还没有内容，我们现在马上加上下面的代码：
-          post: |-
+          post: >-
             保存代码，现在浏览器应该会显示如下内容：
+
 
             ![](tuture-assets/image-d9453668ccb58bed.png)
 
-            一些准备就绪！
 
-            可能现在你对这些代码还不是很理解，没关系，我们马上开始激动人心的讲解过程！
+            我们看到 `index.js` 里面的代码分为三个部分。
+
+
+            首先是一系列导包，我们导入了 `react` 包，并命名为 React，导入了 `react-dom` 包并命名为
+            ReactDOM。对于包含 React 组件（我们将在之后讲解）的文件都必须在文件开头导入 React。
+
+
+            然后我们定义了一个 React 组件，命名为 App，继承自 React.Component，组件的内容我们将会在后面进行讲解。
+
+
+            接着我们使用 ReactDOM 的 render 方法来渲染刚刚定义的 App 组件，render 方法接收两个参数，第一个参数为我们的
+            React 根级组件，第二个参数接收一个 DOM 节点，代表我们将把和 React 应用挂载到这个 DOM 节点下，进而渲染到浏览器中。
     explain:
       pre: "首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n> **注意**\n> Windows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来安装 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA），我们在本教程中将通过  CRA 来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n为了开始接下来的学习，我们还需要做一点清理工作。现在 CRA 初始化的项目里有很多无关的内容，我们运行下面的代码清理一下：\n\n```Bash\n# 如果你还没有在终端进入项目根目录\ncd my-todolist\n\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
+      post: 准备工作已经就绪！你可能对上面的代码细节还不是很清楚，别担心，我们将马上带你领略 React 的神奇世界！
   - name: JSX 语法
     commit: 517171b
     diff:
       - file: src/index.js
         display: true
+        explain:
+          pre: |-
+            ### 实战
+
+            我们使用这一节讲解的 JSX 知识，来继续完成我们的待办事项应用。
+
+            打开 `src/index.js` 修改代码如下：
+          post: |-
+            我们定义了一个 `todoList` 数组，并且在 JSX 中使用 `{}` 进行动态插值，插入了数组的四个元素。
+
+            最后保存代码，浏览器中的效果应该是这样的：
+
+            ![](tuture-assets/image-fe47616b222f85ce.png)
+    explain:
+      pre: >
+        接着我们来看一下 React 引以为傲的特性之一 -- JSX。它允许我们在 JS 代码中使用 XML
+        语法来编写用户界面，使得我们可以充分的利用 JS 的强大特性来操作用户界面。
+
+
+        一个 React 组件的 render 方法中 `return` 的内容就为这个组件所将渲染的内容。比如我们现在的代码：
+
+
+        ```JavaScript
+
+        render() {
+            return <div>Hello, World</div>;
+        }
+
+        ```
+
+
+        这里的 `<div>Hello, World</div>` 是一段 JSX 代码，App 组件最终返回这段 JSX 代码，所以我们使用
+        ReactDOM 的 render 方法渲染 App 组件，最终显示在屏幕上的就是 `Hello, World"` 内容。
+
+
+        ### JSX 作为变量使用
+
+
+        因为 JSX 最终会被编译成一个 JS 对象，所以我们可以把它当做一个 JS 对象使用，它享有和一个 JS
+        对象同等的地位，比如可以将其赋值给一个变量，我们修改上面代码中的  render 方法如下：
+
+
+        ```JavaScript
+
+        render() {
+          const element = <div>Hello, World</div>;
+          return element;
+        }
+
+        ```
+
+
+        保存代码，我们发现浏览器中渲染的内容和我们之前类似。
+
+
+        ### 在 JSX 中使用变量
+
+
+        我们可以使用大括号 `{}` 在 JSX 中动态的插入变量值，比如我们修改 render 方法如下：
+
+
+        ```JavaScript
+
+        render() {
+          const content = "World";
+          const element = <div>Hello, {content}</div>;
+          return element;
+        }
+
+        ```
+
+        保存代码，发现浏览器中效果依然不变。
+
+
+        ### JSX 中使用 JSX
+
+
+        我们可以在 JSX 中再包含 JSX，这样我们编写任意层次的 HTML 结构：
+
+
+        ```JavaScript
+
+        render() {
+            const element = <li>Hello, World</li>
+            return (
+              <div>
+                <ul>
+                  {element}
+                </ul>
+              </div>
+            )
+          }
+        ```
+
+
+        ### JSX 中添加节点属性
+
+
+        我们可以像在 HTML
+        中一样，给元素标签加上属性，只不过我们需要遵守[驼峰式命名](https://baike.baidu.com/item/%E9%AA%86%E9%A9%BC%E5%91%BD%E5%90%8D%E6%B3%95)法则，比如在
+        HTML 上的属性 `data-index` 在 JSX 节点上要写成 `dataIndex`。
+
+
+        ```JavaScript
+
+        const element = <div dataIndex="0">Hello, World</div>;
+
+        ```
+
+
+        还有一个特殊属性就是 `class`，因为在 JS 中 `class` 是保留字，所以我们在 JSX 使用 `class` 属性时要写成
+        `className`。
+
+
+        ```JavaScript
+
+        const element = <div className="app">Hello, World</div>;
+
+        ```
+      post: >
+        你可能注意到了我们手动获取了数组的四个值，然后一个个的用 `{}` 语法插入到 JSX 中并最终渲染，这样做还比较原始，我们将在后面 “列表和
+        Key ” 小节中简化这种写法。
+
+
+        在这一小结中，我们了解了 JSX
+        的概念，并且实践了相关的知识。我们还提出了组件的概念，但是并没有深入讲解它，在下一小节中我们将详细的讲解组件的知识。
