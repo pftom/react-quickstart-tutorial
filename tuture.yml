@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-19T08:25:24.484Z
+updated: 2019-11-19T11:46:54.482Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -303,10 +303,10 @@ steps:
             ![](tuture-assets/image-1ccb228d6f96581c.png)
 
 
-            可以看到，我们的内容又回来了，和我们之前在 [JSX](#jsx-语法)  中看到的内容一样，但是我们成功使用了组件来渲染接收到的
+            可以看到，我们的内容又回来了，和我们之前在 [JSX](#jsx-语法)  中看到的内容一样，但是这一次我们成功使用了组件来渲染接收到的
             Props 内容。
     explain:
-      pre: >+
+      pre: >
         React 为组件提供了 Props，允许使用组件时，给组件传入属性进行个性化渲染。
 
 
@@ -367,4 +367,157 @@ steps:
         <Todo content="图雀" />
 
         ```
+  - name: State 和生命周期
+    commit: 6ed0b12
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: |-
+            ### 实战
 
+            我们运用在这一节中学到的 State 和生命周期知识来继续完成我们的待办事项应用。
+
+            打开 `src/index.js`，修改代码如下：
+          post: >-
+            可以看到我们主要改动了五个部分：
+
+
+            - 将 todoList 移动到组件外面
+
+            - 定义 constructor 方法，并且通过设置 `this.state = { todoList: [] }` 来初始化组件的
+            State
+
+            - 添加 componentDidMount 生命周期方法，当组件挂载到 DOM 节点之后，设置一个时间为 2S 的定时器，并赋值给
+            `this.timer`，用于在组件卸载时销毁定时器。等到 2S 之后，使用 `this.setState({ todoList:
+            todoList })` 来使用我们刚刚移动到组件外面的 todoList 来更新组件的 `this.state.todoList`。
+
+            - 添加 componentWillUnMount 生命周期方法，在组件卸载时，通过
+            `clearTimeout(this.timer)` 来清除我们之前设置的定时器，防止出现内存泄露。
+    explain:
+      pre: >+
+        React 通过给类组件提供 State 来创造交互式的内容 -- 即内容可以在渲染之后发生变化。
+
+
+        ### 定义 State
+
+
+        通过在类组件中添加 `constructor` 方法，并在其中定义和初始化 State：
+
+
+        ```JavaScript
+          constructor(props) {
+            super(props);
+
+            this.state = {
+              todoList: ["图雀", "图雀写作工具", "图雀社区", "图雀文档"]
+            };
+          }
+        ```
+
+
+        这里 constructor 方法接收的 props 属性就是我们在上一节中讲到的那个 props；并且 React 约定每个继承自
+        React.Component 的组件在定义 constructor 方法时，要在方法内首行加入 `super(props)` 。
+
+
+        接着就是在 `this` 上定义 state 属性，并初始化。
+
+
+        ### 使用 State
+
+
+        我们可以在一个组件中的多处地方通过 `this.state` 的方式来使用 State，比如我们在这一节中将讲到的生命周期函数中，比如在
+        render 方法中：
+
+
+        ```JavaScript
+
+        class App extends React.Component {
+          constructor(props) {
+            super(props);
+
+            this.state = {
+              todoList: ["图雀", "图雀写作工具", "图雀社区", "图雀文档"]
+            };
+          }
+
+          render() {
+            return (
+              <ul>
+                <Todo content={this.state.todoList[0]} />
+                <Todo content={this.state.todoList[1]} />
+                <Todo content={this.state.todoList[2]} />
+                <Todo content={this.state.todoList[3]} />
+              </ul>
+            );
+          }
+        }
+
+        ```
+
+
+        ### 更新 State
+
+
+        我们通过 `this.setState` 方法来更新 State，从而使得网页内容在渲染之后还能变化：
+
+
+        ```JavaScript
+
+        this.setState({ todoList: newTodoList });
+
+        ```
+
+
+        ### 生命周期函数
+
+
+        React 提供生命周期函数来追踪一个组件从创建到销毁的全过程。主要包含三个方面：
+
+
+        - 挂载（Mounting）
+
+        - 更新（Updating）
+
+        - 卸载（Unmounting）
+
+
+        我们接下来主要讲解挂载和卸载里面常用的生命周期函数。
+
+
+        #### 挂载
+
+
+        其中挂载中主要常用的有三个方法：
+
+
+        - constructor()
+
+        - render()
+
+        - componentDidMount()
+
+
+        constructor() 在组件创建时调用，如果你不需要初始化 `State` ，即不需要 `this.state = { ... }`
+        这个过程，那么你不需要申明这个方法。
+
+
+        render() 方法是挂载时用来渲染内容的方法，每个类组件都需要一个 render 方法。
+
+
+        componentDidMount() 方法是当组件挂载到 DOM
+        节点中之后会调用的一个方法，我们通常在这里发起一些异步操作，用于获取服务器端的数据等。
+
+
+        #### 卸载
+
+
+        卸载只有一个方法：
+
+
+        - componentWillUnmount()
+
+
+        componentWillUnmount 是当组件从 DOM 节点中卸载之前会调用的方法，我们一般在这里面销毁定时器等会导致内存泄露的内容。
+
+      post: "保存修改的代码，打开浏览器，我们应该会看到有一个内容更新的过程，在组件刚刚创建并挂载时，浏览器屏幕上应该是这样的：\n\n![](tuture-assets/image-da8fa8dd48f49c0a.png)\n\n当过了 2S 之后，我们可以看到熟悉的内容出现了：\n\n![](tuture-assets/image-1ccb228d6f96581c.png)\n\n恭喜你！成功创建了自己第一个交互式的组件！读到这里，你有可能有点累了，试着离开座椅，活动活动，喝杯咖啡，精彩稍后继续 \U0001F643\n\n"
