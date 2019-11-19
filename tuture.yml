@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-19T07:09:06.878Z
+updated: 2019-11-19T07:54:44.633Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -176,3 +176,108 @@ steps:
 
         在这一小结中，我们了解了 JSX
         的概念，并且实践了相关的知识。我们还提出了组件的概念，但是并没有深入讲解它，在下一小节中我们将详细的讲解组件的知识。
+  - name: Component
+    commit: fa38333
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: >-
+            ## 实战
+
+
+            我们运用在这一节中学到的组件知识来继续完成我们的待办事项应用。我们编写一个 Todo 类组件，用于代表单个待办事项，然后在 App
+            类组件中使用 Todo 组件。
+          post: |+
+            保存代码，然后你应该可以在浏览器中看到如下结果：
+
+            ![](tuture-assets/image-d0c6124fca32b8af.png)
+
+    explain:
+      pre: >-
+        React 的核心特点之一就是组件化，即我们将巨大的业务逻辑拆分成一个个的逻辑清晰的小组件，然后通过组合这些组件来完成业务功能。
+
+
+        React 提供两种组件写法：1）函数式组件  2）类组件。
+
+
+        ### 函数式组件
+
+
+        在 React 中，函数式组件会默认接收一个 `props`  参数，然后返回一段 JSX：
+
+
+        ```JavaScript
+
+        function Todo(props) {
+          return <li>Hello, 图雀</li>;
+        }
+
+        ```
+
+
+        关于 `props` 我们将在下一节中讲解。
+
+
+        ### 类组件
+
+
+        通过继承自 React.Component 的类来代表一个组件。
+
+
+        ```JavaScript
+
+        class Todo extends React.Component {
+          render() {
+            return <li>Hello, 图雀</li>;
+          }
+        }
+
+        ```
+
+
+        我们发现，在类组件中，我们需要在 render 方法里面返回需要渲染的 JSX。
+
+
+        ### 组件组合
+
+
+        我们可以组合不同的组件来完成复杂的业务逻辑：
+
+
+        ```JavaScript
+
+        class App extends React.Component {
+          render() {
+            return (
+              <ul>
+                <Todo />
+                <Todo />
+              </ul>
+            );
+          }
+        }
+
+        ```
+
+
+        上面，我们在类组件 App 中使用了我们之前定义的 Todo 组件，我们看到，组件的使用使用 `<Component />` 这样的形式。这个
+        Todo 既可以是类组件也可以是函数式组件，当然 App 也可以是函数式组件。
+
+
+        ### 组件渲染
+
+
+        我们在第一节中讲到，通过 `ReactDOM.render` 方法接收两个参数：1）根组件 2) 待挂载的 DOM 节点，可以将组件的内容渲染到
+        HTML 中。
+
+
+        ```JavaScript
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+        ```
+      post: >-
+        你可能注意到我们之前定义的 todoList 数组现在还没有被使用，并且我们使用了四个相同的 Todo
+        组件，所以现在4个待办事项都是一样的内容，这有点单调，你可能会想，如果可以像调用函数那样对组件进行个性化定制就好了，你的想法是对的，我们将在下一节中引出
+        props，它允许你对组件进行个性化内容定制。
