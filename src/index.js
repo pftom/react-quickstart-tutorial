@@ -5,6 +5,10 @@ const todoList = ["图雀", "图雀写作工具", "图雀社区", "图雀文档"
 
 class Todo extends React.Component {
   render() {
+    if (this.props.index % 2 === 0) {
+      return <li style={{ color: "red" }}>Hello, {this.props.content}</li>;
+    }
+
     return <li>Hello, {this.props.content}</li>;
   }
 }
@@ -34,7 +38,7 @@ class App extends React.Component {
     return (
       <ul>
         {this.state.todoList.map((todo, index) => (
-          <Todo content={todo} key={index} />
+          <Todo content={todo} key={index} index={index} />
         ))}
       </ul>
     );
