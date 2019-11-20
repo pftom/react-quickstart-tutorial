@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-20T08:47:49.894Z
+updated: 2019-11-20T10:20:03.707Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -28,6 +28,9 @@ steps:
 
 
             ![](tuture-assets/image-d9453668ccb58bed.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/a49112366e5fcb87d77009cc2ade1c9e174f375e)
 
 
             我们看到 `index.js` 里面的代码分为三个部分。
@@ -57,12 +60,17 @@ steps:
             我们使用这一节讲解的 JSX 知识，来继续完成我们的待办事项应用。
 
             打开 `src/index.js` 修改代码如下：
-          post: |-
+          post: >-
             我们定义了一个 `todoList` 数组，并且在 JSX 中使用 `{}` 进行动态插值，插入了数组的四个元素。
+
 
             最后保存代码，浏览器中的效果应该是这样的：
 
+
             ![](tuture-assets/image-fe47616b222f85ce.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/commit/517171b1a03f5b931e61de99bd2f75eab7a18bd0)
     explain:
       pre: >
         接着我们来看一下 React 引以为傲的特性之一 -- JSX。它允许我们在 JS 代码中使用 XML
@@ -188,10 +196,14 @@ steps:
 
             我们运用在这一节中学到的组件知识来继续完成我们的待办事项应用。我们编写一个 Todo 类组件，用于代表单个待办事项，然后在 App
             类组件中使用 Todo 组件。
-          post: |+
+          post: >+
             保存代码，然后你应该可以在浏览器中看到如下结果：
 
+
             ![](tuture-assets/image-d0c6124fca32b8af.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/commit/fa3833376ae2d3a898937017a64b8289a9120c19)
 
     explain:
       pre: >-
@@ -301,6 +313,9 @@ steps:
 
 
             ![](tuture-assets/image-1ccb228d6f96581c.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/4e765ffbb2f59649badd33228327b0156540631a)
 
 
             可以看到，我们的内容又回来了，和我们之前在 [JSX](#jsx-语法)  中看到的内容一样，但是这一次我们成功使用了组件来渲染接收到的
@@ -520,7 +535,7 @@ steps:
 
         componentWillUnmount 是当组件从 DOM 节点中卸载之前会调用的方法，我们一般在这里面销毁定时器等会导致内存泄露的内容。
 
-      post: "保存修改的代码，打开浏览器，我们应该会看到有一个内容更新的过程，在组件刚刚创建并挂载时，浏览器屏幕上应该是这样的：\n\n![](tuture-assets/image-da8fa8dd48f49c0a.png)\n\n当过了 2S 之后，我们可以看到熟悉的内容出现了：\n\n![](tuture-assets/image-1ccb228d6f96581c.png)\n\n恭喜你！成功创建了自己第一个交互式的组件！读到这里，你有可能有点累了，试着离开座椅，活动活动，喝杯咖啡，精彩稍后继续 \U0001F643\n\n"
+      post: "保存修改的代码，打开浏览器，我们应该会看到有一个内容更新的过程，在组件刚刚创建并挂载时，浏览器屏幕上应该是这样的：\n\n![](tuture-assets/image-da8fa8dd48f49c0a.png)\n\n当过了 2S 之后，我们可以看到熟悉的内容出现了：\n\n![](tuture-assets/image-1ccb228d6f96581c.png)\n\n[查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/6ed0b12e33bbfe719f93ea8ee824bb9ec07944c4)\n\n恭喜你！成功创建了自己第一个交互式的组件！读到这里，你有可能有点累了，试着离开座椅，活动活动，喝杯咖啡，精彩稍后继续 \U0001F643\n\n"
   - name: 列表和 Key
     commit: 3c0e1f2
     diff:
@@ -546,6 +561,9 @@ steps:
 
 
             ![](tuture-assets/image-1ccb228d6f96581c.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/3c0e1f2538d1586fbd1f889999a0b9c1e5734176)
 
 
             这是因为，一开始 `this.state.todoList` 在 constructor
@@ -652,6 +670,15 @@ steps:
             <li style={{ color: "red", backgroundColor: "black"}}>Hello, 图雀</li>
 
             ```
+
+
+            保存代码，你应该可以在浏览器中看到如下内容：
+
+
+            ![](tuture-assets/image-fb5aa12d4320c007.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/28b10dc8111adbe8acc37aa3b5a87bb5f55b6bc8)
     explain:
       pre: >-
         在 React 中，我们可以根据不同的情况，渲染不同的内容，这也被成为条件渲染。
@@ -741,6 +768,9 @@ steps:
 
 
             ![](tuture-assets/image-479da0515331f7ba.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/b77bcab1d5b271ca2e3649a102654a3fccb588f3)
     explain:
       pre: >-
         在 React 元素中处理事件和 DOM 类似，就是写法有点不一样。
@@ -818,6 +848,9 @@ steps:
 
 
             ![](tuture-assets/image-37a930ad1485173f.png)
+
+
+            [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/8619e9f93823fc6eb751e7c3cee1d741105c45b6)
 
 
             恭喜你！你成功使用 React 完成了一个简单的待办事项应用，它可以完成如下的功能：
