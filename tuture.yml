@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-20T08:21:13.209Z
+updated: 2019-11-20T08:47:49.894Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -780,3 +780,75 @@ steps:
 
         在 React 中，我们需要将 HTML 中的 `onclick` 换成驼峰式的 `onClick`，然后在事件处理方法里面不能直接使用
         `handleclick()`，而是传递一个函数 `handleClick`。
+  - name: 表单
+    commit: 8619e9f
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: 我们修改 `src/index.js` 文件内容如下：
+          post: >+
+            上面的变化主要有三个部分：
+
+
+            - 首先我们将 `div` 替换成了 `form`，然后在上面定义了  `onSubmit` 提交事件，并且通过一个箭头函数接收事件
+            `e` 来进行事件处理，在 form 被提交时，在箭头函数里面会调用 `handleSubmit` 方法， 并将 e 传递给这个函数。
+
+            - 在 handleSubmit 方法里面，我们首先调用了 `e.preventDefault()`
+            方法，来禁止浏览器的默认事件处理，这样我们在提交表单之后，浏览器就不会刷新，之后是将现有的 `this.sate.todoList`
+            列表加上新输入的 `nowTodo`，最后是使用 `this.setState` 更新 `todoList` 和 `nowTodo`。
+
+            - 接着我们将之前的展示 `this.state.nowTodo` 的 div 替换成 提交按钮 `button`，并将 button
+            的 `type` 设置为 `submit` 属性，表示在点击这个 button 之后，会触发表单提交。
+
+
+            > **注意**
+
+            > 我们在 `handleSubmit` 方法里面使用 `this.setState` 更新状态时，将 `nowTodo`
+            设置为了空字符串，代表我们在加入新的待办事项之后，将清除现有输入的待办事项内容。
+
+
+            保存代码，打开浏览器，再输入框里面输入点东西，你应该可以看到下面的内容：
+
+
+            ![](tuture-assets/image-fdd2b6a88757dfa6.png)
+
+
+            当你点击提交按钮之后，新的待办事项会加入到现有的 todoList 列表中，你应该可以看到下面的内容：
+
+
+            ![](tuture-assets/image-37a930ad1485173f.png)
+
+
+            恭喜你！你成功使用 React 完成了一个简单的待办事项应用，它可以完成如下的功能：
+
+
+            - 异步获取将要展示的待办事项：todoList
+
+            - 将待办事项展示出来
+
+            - 偶数项待办事项将会展示成红色
+
+            - 可以添加新的待办事项
+
+
+            做得好！我们希望你现在已经对 React 的运行机制有了一个比较完整的了解，也希望本篇教程能够为你踏入 React
+            开发世界的提供一个好的开始！感谢你的阅读！
+
+    explain:
+      pre: 接下来我们来完成增加新的待办事项的功能的第二个步骤：允许用户将新输入的待办事项加入到 todoList 列表中。
+      post: >-
+        ### 后记
+
+
+        受限于篇幅，我们的待办事项还不完整，如果你有额外的时间或者你想要练习你新学到的 React
+        知识，下面是一些使我们的待办事项变得完整的一些想法，我们将按实现难度给这些功能排序：
+
+
+        - 在添加新的待办事项之后，清空输入框里面的内容，方便下一次输入
+
+        - 允许对单个事项进行删除
+
+        - 允许用户对单个事项进行修改
+
+        - 允许用户对待办事项进行搜索
