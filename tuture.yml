@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-20T10:20:03.707Z
+updated: 2019-11-20T11:17:15.728Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -191,7 +191,7 @@ steps:
         display: true
         explain:
           pre: >-
-            ## 实战
+            ### 实战
 
 
             我们运用在这一节中学到的组件知识来继续完成我们的待办事项应用。我们编写一个 Todo 类组件，用于代表单个待办事项，然后在 App
