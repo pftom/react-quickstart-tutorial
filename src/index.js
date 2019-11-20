@@ -41,13 +41,23 @@ class App extends React.Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault(e);
+    const newTodoList = this.state.todoList.concat(this.state.nowTodo);
+
+    this.setState({
+      todoList: newTodoList,
+      nowTodo: ""
+    });
+  }
+
   render() {
     return (
       <div>
-        <div>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <input type="text" onChange={e => this.handleChange(e)} />
-          <div>{this.state.nowTodo}</div>
-        </div>
+          <button type="submit">提交</button>
+        </form>
         <ul>
           {this.state.todoList.map((todo, index) => (
             <Todo content={todo} key={index} index={index} />
