@@ -18,6 +18,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      nowTodo: "",
       todoList: []
     };
   }
@@ -34,13 +35,25 @@ class App extends React.Component {
     clearTimeout(this.timer);
   }
 
+  handleChange(e) {
+    this.setState({
+      nowTodo: e.target.value
+    });
+  }
+
   render() {
     return (
-      <ul>
-        {this.state.todoList.map((todo, index) => (
-          <Todo content={todo} key={index} index={index} />
-        ))}
-      </ul>
+      <div>
+        <div>
+          <input type="text" onChange={e => this.handleChange(e)} />
+          <div>{this.state.nowTodo}</div>
+        </div>
+        <ul>
+          {this.state.todoList.map((todo, index) => (
+            <Todo content={todo} key={index} index={index} />
+          ))}
+        </ul>
+      </div>
     );
   }
 }
