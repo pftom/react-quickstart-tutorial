@@ -14,7 +14,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-19T12:25:44.070Z
+updated: 2019-11-19T13:23:13.969Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -625,3 +625,70 @@ steps:
 
         这里我们使用了列表的 `index` 作为组件的 `key` 值，React 社区推荐的最佳实践方式是使用列表数据元素的唯一标识符作为
         `key` 值，比如如果你的数据是来自数据库获取，那么列表元素数据的主键可以作为 `key`。
+  - name: 条件渲染
+    commit: 28b10dc
+    diff:
+      - file: src/index.js
+        display: true
+        explain:
+          pre: |-
+            ### 实战
+
+            我们运用本节学到的知识继续完成我们的待办事项应用。
+          post: >-
+            可以看到，我们在首先在 App 组件中给 Todo 组件传入了一个 `index` 属性，然后再 Todo 组件中，就
+            `this.props.index` 进行判断，如果为偶数，那么渲染一个红色的文字，如果为奇数则保持不变。
+
+
+            这里我们通过给 `li` 元素的 `style` 属性赋值一个对象来实现在 JSX 中设置元素的 CSS
+            属性，我们可以通过同样的方式设置任何 CSS 属性，只不过有一点需要做一下改变，就是像  `background-coor`
+            这样的属性，要写成驼峰式 `backgroundColor`。
+
+
+            ```JavaScript
+
+            // 黑底红字的 Hello, 图雀
+
+            <li style={{ color: "red", backgroundColor: "black"}}>Hello, 图雀</li>
+
+            ```
+    explain:
+      pre: >-
+        在 React 中，我们可以根据不同的情况，渲染不同的内容，这也被成为条件渲染。
+
+
+        ### if-else 条件渲染
+
+
+        ```JavaScript
+
+        render() {
+            if (this.props.content === "图雀") {
+              return <li>你好, {this.props.content}</li>;
+            }
+
+            return <li>Hello, {this.props.content}</li>;
+          }
+        ```
+
+
+        在上面的代码中，我们判断 `this.props.content` 的内容，当内容为 `" 图雀"` 时，我们渲染 `"你好,
+        图雀"`，对于其他内容我们依然渲染 `"Hello, 图雀"`。
+
+
+        ### 三元表达式条件渲染
+
+
+        我们还可以直接在 JSX 中使用三元表达式进行条件渲染：
+
+
+        ```JavaScript
+
+        render() {
+            return this.props.content === "图雀"? (
+              <li>你好, {this.props.content}</li>
+            ) : (
+              <li>Hello, {this.props.content}</li>
+            );
+          }
+        ```
