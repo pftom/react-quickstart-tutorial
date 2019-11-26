@@ -13,7 +13,7 @@ categories:
   - 入门
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-21T02:22:18.902Z
+updated: 2019-11-26T11:06:10.164Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -21,7 +21,9 @@ steps:
       - file: src/index.js
         display: true
         explain:
-          pre: 此时在终端项目目录下运行 `npm start` 会报错，因为我们的 `index.js` 还没有内容，我们现在马上加上下面的代码：
+          pre: >-
+            此时在终端项目目录下运行 `npm start` 会报错，因为我们的 `index.js`
+            还没有内容，我们使用编辑器打开项目，在刚刚创建的 index.js 文件中加入如下代码：
           post: >-
             保存代码，现在浏览器应该会显示如下内容：
 
@@ -45,7 +47,7 @@ steps:
             接着我们使用 ReactDOM 的 render 方法来渲染刚刚定义的 App 组件，render 方法接收两个参数，第一个参数为我们的
             React 根级组件，第二个参数接收一个 DOM 节点，代表我们将把和 React 应用挂载到这个 DOM 节点下，进而渲染到浏览器中。
     explain:
-      pre: "### 我们将构建什么？\n\n在这篇教程中，我们将展示给你如何使用 React 构建一个待办事项应用。\n\n你可以在这里看到我们最后构建的结果：[最终结果](https://codesandbox.io/s/currying-grass-rglst)。如果你现在对代码还不是很理解，或者你还不熟悉代码语法，别担心！这篇教程的目标就是帮助你理解 React 和它的语法。\n\n我们推荐你在继续阅读这篇教程之前先熟悉一下这个待办事项，你甚至可以尝试添加几个待办事项！你可能注意到当你添加了2个待办事项之后，会出现不同的颜色；这就是 React 中条件渲染的魅力。\n\n当你熟悉了这个待办事项之后你就可以关闭它了。在这篇教程的学习中，我们将从一个 Hello World 代码模板开始，然后带领你初始化开发环境，这样你就可以开始构建这个待办事项了。\n\n### 你将学到什么？\n\n这是一篇 React 快速入门教程，我们将会进行有所取舍的讲解：\n\n- 你讲学习所有 React 的常用基础概念\n- 你将学习如何运用 React 搭建一个待办事项小应用\n- 还有一些概念比如错误处理，Context，Refs 等我们这篇教程讲不会讲到，当然当你学会了 React 基础，那么剩下的你可以通过查阅 [React 官方文档](https://zh-hans.reactjs.org/)快速了解到。\n\n### 前提条件\n\n我们假设你熟系 HTML 和 JavaScript，但即使你是从其他编程语言转过来的，你也能看懂这篇教程。我们还假设你对一些编程语言的概念比较熟悉，比如函数，对象，数组，如果对类了解就更好了。\n\n如果你需要复习 JavaScript，我们推荐你阅读[这篇指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript)。你可能注意到了我们使用了一些 ES6 的特性 -- 一个最近的 JavaScript 版本。在这篇教程，我们会使用 [arrow functions](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，[classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)，和 [const](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const)。你可以使用 [Babel REPL](https://www.babeljs.cn/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAFgRgD4AJRBEAGhgHcQAnBAEwEJsB6AwgbgChRJY_KAEMAlmDh0YWRiGABXVOgB0AczhQAokiVQAQgE8AkowAUAcjogQUcwEpeAJTjDgUACIB5ALLK6aRklTRBQ0KCohMQk6Bx4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.7.3) 来检查 ES6 代码编译之后的结果。\n\n### 环境准备\n首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n> **注意**\n> Windows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来我们将使用 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA）来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n为了开始接下来的学习，我们还需要做一点清理工作。现在 CRA 初始化的项目里有很多无关的内容，我们运行下面的代码清理一下：\n\n```Bash\n# 如果你还没有在终端进入项目根目录\ncd my-todolist\n\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
+      pre: "### 我们将构建什么？\n\n在这篇教程中，我们将展示给你如何使用 React 构建一个待办事项应用。\n\n你可以在这里看到我们最后构建的结果：[最终结果](https://codesandbox.io/s/currying-grass-rglst)。如果你现在对代码还不是很理解，或者你还不熟悉代码语法，别担心！这篇教程的目标就是帮助你理解 React 和它的语法。\n\n我们推荐你在继续阅读这篇教程之前先熟悉一下这个待办事项，你甚至可以尝试添加几个待办事项！你可能注意到当你添加了2个待办事项之后，会出现不同的颜色；这就是 React 中条件渲染的魅力。\n\n当你熟悉了这个待办事项之后你就可以关闭它了。在这篇教程的学习中，我们将从一个 Hello World 代码模板开始，然后带领你初始化开发环境，这样你就可以开始构建这个待办事项了。\n\n### 你将学到什么？\n\n这是一篇 React 快速入门教程，我们将会进行有所取舍的讲解：\n\n- 你讲学习所有 React 的常用基础概念\n- 你将学习如何运用 React 搭建一个待办事项小应用\n- 还有一些概念比如错误处理，Context，Refs 等我们这篇教程讲不会讲到，当然当你学会了 React 基础，那么剩下的你可以通过查阅 [React 官方文档](https://zh-hans.reactjs.org/)快速了解到。\n\n### 前提条件\n\n我们假设你熟系 HTML 和 JavaScript，但即使你是从其他编程语言转过来的，你也能看懂这篇教程。我们还假设你对一些编程语言的概念比较熟悉，比如函数，对象，数组，如果对类了解就更好了。\n\n如果你需要复习 JavaScript，我们推荐你阅读[这篇指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript)。你可能注意到了我们使用了一些 ES6 的特性 -- 一个最近的 JavaScript 版本。在这篇教程，我们会使用 [arrow functions](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，[classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)，和 [const](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const)。你可以使用 [Babel REPL](https://www.babeljs.cn/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAFgRgD4AJRBEAGhgHcQAnBAEwEJsB6AwgbgChRJY_KAEMAlmDh0YWRiGABXVOgB0AczhQAokiVQAQgE8AkowAUAcjogQUcwEpeAJTjDgUACIB5ALLK6aRklTRBQ0KCohMQk6Bx4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.7.3) 来检查 ES6 代码编译之后的结果。\n\n### 环境准备\n首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n> **注意**\n> Windows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来我们将使用 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA）来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n为了开始接下来的学习，我们还需要做一点清理工作。现在 CRA 初始化的项目里有很多无关的内容，我们运行下面的代码清理一下，首先再终端中按 `ctrl + c` 关闭刚刚运行的开发环境，然后再终端中依次输入如下的命令：\n\n```Bash\n# 如果你还没有在终端进入项目根目录\ncd my-todolist\n\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
       post: 准备工作已经就绪！你可能对上面的代码细节还不是很清楚，别担心，我们将马上带你领略 React 的神奇世界！
   - name: JSX 语法
     commit: 517171b
@@ -195,6 +197,9 @@ steps:
 
             我们运用在这一节中学到的组件知识来继续完成我们的待办事项应用。我们编写一个 Todo 类组件，用于代表单个待办事项，然后在 App
             类组件中使用 Todo 组件。
+
+
+            打开 `src/index.js` 文件，修改代码如下：
           post: >+
             保存代码，然后你应该可以在浏览器中看到如下结果：
 
@@ -302,6 +307,8 @@ steps:
             ### 实战
 
             我们运用这一节中学到的 Props 知识来继续完成我们的待办事项应用。
+
+            打开 `src/index.js` 文件，修改代码如下：
 
           post: >-
             注意到我们继续使用了之前定义的数组，然后给每个 Todo 组件分别赋值数组的每一项，最后在 Todo 组件中使用我们传递下来的
@@ -679,7 +686,7 @@ steps:
 
             [查看此时所有项目代码](https://github.com/pftom/react-quickstart-tutorial/tree/28b10dc8111adbe8acc37aa3b5a87bb5f55b6bc8)
     explain:
-      pre: >-
+      pre: >+
         在 React 中，我们可以根据不同的情况，渲染不同的内容，这也被成为条件渲染。
 
 
@@ -718,6 +725,47 @@ steps:
             );
           }
         ```
+
+
+        当然三元表达式还可以用来条件渲染不同的 React 元素属性：
+
+
+        ```JavaScript
+
+        render() {
+            return (
+              <li className={this.state.isClicked ? 'clicked' : 'notclicked'}>Hello, {this.props.content}</li>
+            )
+          }
+        ```
+
+
+        上面我们判断组件的 `this.state.isClicked` 属性，如果 `this.state.isClicked` 属性为
+        `true`，那么我们最终渲染 `"clicked"` 类：
+
+
+        ```JavaScript
+
+        render() {
+            return (
+              <li className="clicked"}>Hello, {this.props.content}</li>
+            )
+          }
+        ```
+
+
+        如果 `this.state.isClicked` 为 `false`，那么最终渲染 `notclicked` 类：
+
+
+        ```JavaScript
+
+        render() {
+            return (
+              <li className="notclicked">Hello, {this.props.content}</li>
+            )
+          }
+        ```
+
   - name: 事件处理
     commit: b77bcab
     diff:
