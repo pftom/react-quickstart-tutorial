@@ -14,7 +14,7 @@ categories:
 github: 'https://github.com/pftom/react-quickstart-tutorial'
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-11-27T01:38:17.715Z
+updated: 2019-12-04T08:44:59.384Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -26,24 +26,6 @@ steps:
             此时如果在终端项目目录下运行 `npm start` 会报错，因为我们的 `index.js` 还没有内容，我们在终端中使用 `ctrl
             +c ` 关闭开发服务器，然后使用编辑器打开项目，在刚刚创建的 index.js 文件中加入如下代码：
           post: >
-            ::: info
-
-            对于还没有自己心仪编辑器的同学，我们强烈推荐你阅读一下图雀社区的 [FAQ > 常用工具推荐 >
-            编辑器](https://tuture.co/FAQ/)推荐部分。
-
-
-            对此代码块的展现风格不熟悉的的同学也可以阅读一下图雀社区的 [FAQ > 关于教程展示](https://tuture.co/FAQ/)
-            部分。
-
-            :::
-
-
-            保存代码，在终端中使用 `npm start` 命令开启开发服务器，现在浏览器应该会显示如下内容：
-
-
-            ![](tuture-assets/image-d9453668ccb58bed.png)
-
-
             我们看到 `index.js` 里面的代码分为三个部分。
 
 
@@ -55,8 +37,9 @@ steps:
             React.Component，组件的内容我们将会在后面进行讲解。
 
 
-            接着我们使用 ReactDOM 的 render 方法来渲染刚刚定义的 App 组件，render 方法接收两个参数，第一个参数为我们的
-            React 根级组件，第二个参数接收一个 DOM 节点，代表我们将把和 React 应用挂载到这个 DOM 节点下，进而渲染到浏览器中。
+            接着我们使用 ReactDOM 的 render 方法来渲染刚刚定义的 App 组件，`render
+            `方法接收两个参数，第一个参数为我们的 React 根级组件，第二个参数接收一个 DOM 节点，代表我们将把和 React
+            应用挂载到这个 DOM 节点下，进而渲染到浏览器中。
 
 
 
@@ -69,8 +52,14 @@ steps:
             应用，这两个部分都是必须的。后面所有涉及到的代码修改都是关于第二部分代码的修改，或者是在第一部分到第三部分之间插入或删除代码。
 
             :::
+
+
+            保存代码，在终端中使用 `npm start` 命令开启开发服务器，现在浏览器应该会显示如下内容：
+
+
+            ![](tuture-assets/image-d9453668ccb58bed.png)
     explain:
-      pre: "### 我们将构建什么？\n\n在这篇教程中，我们将展示给你如何使用 React 构建一个待办事项应用。\n\n你可以在这里看到我们最后构建的结果：[最终结果](https://codesandbox.io/s/currying-grass-rglst)。如果你现在对代码还不是很理解，或者你还不熟悉代码语法，别担心！这篇教程的目标就是帮助你理解 React 和它的语法。\n\n我们推荐你在继续阅读这篇教程之前先熟悉一下这个待办事项，你甚至可以尝试添加几个待办事项！你可能注意到当你添加了2个待办事项之后，会出现不同的颜色；这就是 React 中条件渲染的魅力。\n\n当你熟悉了这个待办事项之后你就可以关闭它了。在这篇教程的学习中，我们将从一个 Hello World 代码模板开始，然后带领你初始化开发环境，这样你就可以开始构建这个待办事项了。\n\n### 你将学到什么？\n\n这是一篇 React 快速入门教程，我们将会进行有所取舍的讲解：\n\n- 你讲学习所有 React 的常用基础概念。\n- 你将学习如何运用 React 搭建一个待办事项小应用。\n- 还有一些概念比如错误处理，Context，Refs 等我们这篇教程将不会讲到，当然当你学会了 React 基础，那么剩下的你可以通过查阅 [React 官方文档](https://zh-hans.reactjs.org/)快速了解到。\n\n### 前提条件\n\n我们假设你熟系 HTML 和 JavaScript，但即使你是从其他编程语言转过来的，你也能看懂这篇教程。我们还假设你对一些编程语言的概念比较熟悉，比如函数，对象，数组，如果对类了解就更好了。\n\n如果你需要复习 JavaScript，我们推荐你阅读[这篇指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript)。你可能注意到了我们使用了一些 ES6 的特性 -- 一个最近的 JavaScript 版本。在这篇教程，我们会使用 [arrow functions](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，[classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)，和 [const](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const)。你可以使用 [Babel REPL](https://www.babeljs.cn/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAFgRgD4AJRBEAGhgHcQAnBAEwEJsB6AwgbgChRJY_KAEMAlmDh0YWRiGABXVOgB0AczhQAokiVQAQgE8AkowAUAcjogQUcwEpeAJTjDgUACIB5ALLK6aRklTRBQ0KCohMQk6Bx4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.7.3) 来检查 ES6 代码编译之后的结果。\n\n### 环境准备\n首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n> **注意**\n> Windows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来我们将使用 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA）来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n现在 CRA 初始化的项目里有很多无关的内容，为了开始接下来的学习，我们还需要做一点清理工作。首先在终端中按 `ctrl + c` 关闭刚刚运行的开发环境，然后在终端中依次输入如下的命令：\n\n```Bash\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
+      pre: "### 我们将构建什么？\n\n在这篇教程中，我们将展示给你如何使用 React 构建一个待办事项应用。\n\n你可以在这里看到我们最后构建的结果：[最终结果](https://codesandbox.io/s/currying-grass-rglst)。如果你现在对代码还不是很理解，或者你还不熟悉代码语法，别担心！这篇教程的目标就是帮助你理解 React 和它的语法。\n\n我们推荐你在继续阅读这篇教程之前先熟悉一下这个待办事项，你甚至可以尝试添加几个待办事项！你可能注意到当你添加了2个待办事项之后，会出现不同的颜色；这就是 React 中条件渲染的魅力。\n\n当你熟悉了这个待办事项之后你就可以关闭它了。在这篇教程的学习中，我们将从一个 Hello World 代码模板开始，然后带领你初始化开发环境，这样你就可以开始构建这个待办事项了。\n\n### 你将学到什么？\n\n你将学习所有 React 的基础概念，其中又分为三个部分：\n\n- 编写组件相关：包括 JSX 语法、Component、Props\n- 组件的交互：包括 State 和生命周期\n- 组件的渲染：包括列表和 Key、条件渲染\n- 和 DOM & HTML 相关：包括事件处理、表单。\n\n### 前提条件\n\n我们假设你熟系 HTML 和 JavaScript，但即使你是从其他编程语言转过来的，你也能看懂这篇教程。我们还假设你对一些编程语言的概念比较熟悉，比如函数、对象、数组，如果对类了解就更好了。\n\n如果你需要复习 JavaScript，我们推荐你阅读[这篇指南](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript)。你可能注意到了我们使用了一些 ES6 的特性 -- 一个最近的 JavaScript 版本。在这篇教程，我们会使用 [arrow functions](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)，[classes](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)，和 [const](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const)。你可以使用 [Babel REPL](https://www.babeljs.cn/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAFgRgD4AJRBEAGhgHcQAnBAEwEJsB6AwgbgChRJY_KAEMAlmDh0YWRiGABXVOgB0AczhQAokiVQAQgE8AkowAUAcjogQUcwEpeAJTjDgUACIB5ALLK6aRklTRBQ0KCohMQk6Bx4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.7.3) 来检查 ES6 代码编译之后的结果。\n\n### 环境准备\n首先准备 Node 开发环境，访问 [Node 官方网站](https://nodejs.org/zh-cn/)下载并安装。打开终端输入如下命令检测 Node 是否安装成功：\n\n```Bash\nnode -v # v10.16.0\nnpm -v # 6.9.0\n```\n\n\n::: warning\n**注意**\n\nWindows 用户需要打开 cmd 工具，Mac 和 Linux 是终端。\n:::\n\n\n如果上面的命令有输出且无报错，那么代表 Node 环境安装成功。接下来我们将使用 React 脚手架 -- [Create React App](https://create-react-app.dev/)（简称 CRA）来初始化项目，同时这也是官方推荐初始化 React 项目的最佳方式。\n\n在终端中输入如下命令：\n\n```Bash\nnpx create-react-app my-todolist\n```\n\n等待命令运行完成，接着输入如下命令开启项目：\n\n```Bash\ncd my-todolist && npm start\n```\n\nCRA 会自动开启项目并打开浏览器，你应该可以看到下面的结果：\n\n![](tuture-assets/image.png)\n\n\U0001F389\U0001F389\U0001F389 恭喜你！成功创建了第一个 React 应用！\n\n现在 CRA 初始化的项目里有很多无关的内容，为了开始接下来的学习，我们还需要做一点清理工作。首先在终端中按 `ctrl + c` 关闭刚刚运行的开发环境，然后在终端中依次输入如下的命令：\n\n```Bash\n# 进入 src 目录\ncd src\n\n# 如果你在使用 Mac 或者 Linux：\nrm -f *\n\n# 或者，你在使用 Windows：\ndel *\n\n# 然后，创建我们将学习用的 JS 文件\n# 如果你在使用 Mac 或者 Linux：\ntouch index.js\n\n# 或者，你在使用 Windows\ntype nul > index.js\n\n# 最后，切回到项目目录文件夹下\ncd ..\n```\n"
       post: |-
         准备工作已经就绪！
 
@@ -101,7 +90,10 @@ steps:
 
             ::: info
 
-            此时我们终端中 React 开发服务器应该是保持打开的，这样才能监听到我们在编辑器中修改的代码，从而自动刷新浏览器。
+            **提示**
+
+
+            无需关闭刚才使用 `npm start` 开启的开发服务器，修改代码后，浏览器中的内容将会自动刷新！
 
             :::
     explain:
@@ -122,8 +114,66 @@ steps:
         ```
 
 
-        这里的 `<div>Hello, World</div>` 是一段 JSX 代码，App 组件最终返回这段 JSX 代码，所以我们使用
-        ReactDOM 的 render 方法渲染 App 组件，最终显示在屏幕上的就是 `Hello, World"` 内容。
+        这里的 `<div>Hello, World</div>` 是一段 JSX 代码，它最终会被
+        [Babel](https://www.babeljs.cn/) 转译成下面这段 JS 代码:
+
+
+        ```JavaScript
+
+        React.createElement(
+          'div',
+          null,
+          'Hello, World'
+        )
+
+        ```
+
+
+        `React.createElement()` 接收三个参数：
+
+
+        - 第一个参数代表 JSX 元素标签。
+
+        - 第二个参数代表这个 JSX 元素接收的属性，它是一个对象，这里因为我们的 `div` 没有接收任何属性，所以它是 `null`。
+
+        - 第三个参数代表 JSX 元素包裹的内容。
+
+
+        `React.createElement()` 会对参数做一些检查确保你写的代码不会产生 BUG，它最终会创建一个类似下面的对象：
+
+
+        ```JavaScript
+
+        {
+          type: 'div',
+          props: {
+            children: 'Hello, World'
+          }
+        };
+
+        ```
+
+
+        这些对象被称之为 “React Element”。你可以认为它们描述了你想要在屏幕上看到的内容。React 将会接收这些对象，使用它们来构建
+        DOM，并且对它们进行更新。
+
+
+
+        ::: warning
+
+        **注意**
+
+
+        我们推荐你使用 [“Babel”
+        ](https://www.babeljs.cn/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBApgGzgWzmWBeGAeAFgRgD4AJRBEAGhgHUQAnBAE2wHoDCBuAKFEll6gBDAJZg4dGFkYhgAV1ToAdAHM4UAKJIFUAEIBPAJKMAFAHI6IEFFMBKbgCU4g4FAAiAeQCyiumkbjjRBQ0KCoBETE6Oy4gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.7.3)
+        查看 JSX 的编译结果。
+
+        :::
+
+
+
+        App 组件最终返回这段 JSX 代码，所以我们使用 ReactDOM 的 `render` 方法渲染 App 组件，最终显示在屏幕上的就是
+        `Hello, World"` 内容。
 
 
         ### JSX 作为变量使用
@@ -201,8 +251,16 @@ steps:
         ```
 
 
-        还有一个特殊属性就是 `class`，因为在 JS 中 `class` 是保留字，所以我们在 JSX 使用 `class` 属性时要写成
-        `className`。
+        ::: warning
+
+        **注意**
+
+
+        在 JSX 中所有的属性都要更换成驼峰式命名，比如 `onclick` 要改成 `onClick`，唯一比较特殊的就是 `class`，因为在
+        JS 中 `class` 是保留字，我们要把 `class` 改成 `className` 。
+
+        :::
+
 
 
         ```JavaScript
@@ -211,12 +269,12 @@ steps:
 
         ```
       post: >
-        你可能注意到了我们手动获取了数组的四个值，然后一个个的用 `{}` 语法插入到 JSX 中并最终渲染，这样做还比较原始，我们将在后面 [列表和
+        你可能注意到了我们手动获取了数组的四个值，然后逐一的用 `{}` 语法插入到 JSX 中并最终渲染，这样做还比较原始，我们将在后面 [列表和
         Key](列表和-key) 小节中简化这种写法。
 
 
-        在这一小结中，我们了解了 JSX
-        的概念，并且实践了相关的知识。我们还提出了组件的概念，但是并没有深入讲解它，在下一小节中我们将详细的讲解[组件](#component)的知识。
+        在这一小节中，我们了解了 JSX
+        的概念，并且实践了相关的知识。我们还提出了组件的概念，但是并没有深入讲解它，在下一小节中我们将详细地讲解[组件](#component)的知识。
   - name: Component
     commit: fa38333
     diff:
@@ -253,7 +311,7 @@ steps:
 
     explain:
       pre: >-
-        React 的核心特点之一就是组件化，即我们将巨大的业务逻辑拆分成一个个的逻辑清晰的小组件，然后通过组合这些组件来完成业务功能。
+        React 的核心特点之一就是组件化，即我们将巨大的业务逻辑拆分成一个个逻辑清晰的小组件，然后通过组合这些组件来完成业务功能。
 
 
         React 提供两种组件写法：1）函数式组件  2）类组件。
@@ -294,7 +352,7 @@ steps:
         ```
 
 
-        我们发现，在类组件中，我们需要在 render 方法里面返回需要渲染的 JSX。
+        我们发现，在类组件中，我们需要在 `render` 方法里面返回需要渲染的 JSX。
 
 
         ### 组件组合
@@ -395,7 +453,7 @@ steps:
         ### 函数式组件中使用 Props
 
 
-        函数式组件默认接收 props 参数，它是一个对象，用于保存父组件传递下来的内容：
+        函数式组件默认接收 `props` 参数，它是一个对象，用于保存父组件传递下来的内容：
 
 
         ```JavaScript
@@ -413,7 +471,7 @@ steps:
 
 
         我们给 Todo 函数式组件传递了一个 `content` 属性， 它的值为 `"图雀"` ，所有传递的属性都会合并进 `props`
-        对象中，然后传递给 Todo 组件，这里 props 对象是这样的 `props = { content: "图雀" }`
+        对象中，然后传递给 Todo 组件，这里 `props` 对象是这样的 `props = { content: "图雀" }`
         ，如果我们再传递一个属性：
 
 
@@ -424,7 +482,7 @@ steps:
         ```
 
 
-        最终 props 对象就会变成这样：`props={ content: "图雀", from: "图雀社区" }`。
+        最终 `props` 对象就会变成这样：`props={ content: "图雀", from: "图雀社区" }`。
 
 
 
@@ -563,6 +621,70 @@ steps:
         ```
 
 
+
+        ::: warning
+
+        **注意**
+
+
+        关于 `this.setState` 我们需要注意以下几点：
+
+
+        1）这里不能够通过直接修改 `this.state` 的方式来更新 `state`:
+
+
+        ```JavaScript
+
+        // 错误的
+
+        this.state.todoList = newTodoList;
+
+        ```
+
+
+        2）State 的更新是合并更新的：
+
+
+        比如原 `state` 是这样的：
+
+
+        ```JavaScript
+         constructor(props) {
+            super(props);
+            this.state = {
+              todoList: [],
+              nowTodo: '',
+            };
+          }
+        ```
+
+
+        然后你调用 `this.setState()` 方法来更新 `state`:
+
+
+        ```JavaScript
+
+        this.setState({ nowTodo: "Hello, 图雀" });
+
+        ```
+
+
+        React 将会合并更新，即将 `nowTodo` 的新内容合并进原 `this.state`，当更新之后，我们的 `this.state`
+        将会是下面这样的：
+
+
+        ```JavaScript
+
+        this.state = { todoList: [], nowTodo: "Hello, 图雀" };
+
+        ```
+
+        不会因为只单独设置了 `nowTodo` 的值，就将 `todoList` 给覆盖掉。
+
+        :::
+
+
+
         ### 生命周期函数
 
 
@@ -576,7 +698,27 @@ steps:
         - 卸载（Unmounting）
 
 
-        我们接下来主要讲解挂载和卸载里面常用的生命周期函数。
+        我们可以通过下面的嵌入网页查看一下具体的生命周期的图示：
+
+
+        <iframe id="lifecycle"
+        src="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"
+        style="width: 100%; height: 700px;"> </iframe>
+
+
+
+        ::: warning
+
+        **注意**
+
+
+        React 生命周期相对而言比较复杂，我们这里不会详细讲解每个部分，上面的图示用户可以试着了解一下，对它有个大概的印象。
+
+        :::
+
+
+
+        这里我们主要讲解挂载和卸载里面常用的生命周期函数。
 
 
         #### 挂载
@@ -585,14 +727,14 @@ steps:
         其中挂载中主要常用的有三个方法：
 
 
-        - constructor()
+        - `constructor()`
 
-        - render()
+        - `render()`
 
-        - componentDidMount()
+        - `componentDidMount()`
 
 
-        constructor() 在组件创建时调用，如果你不需要初始化 `State` ，即不需要 `this.state = { ... }`
+        `constructor()` 在组件创建时调用，如果你不需要初始化 `State` ，即不需要 `this.state = { ... }`
         这个过程，那么你不需要定义这个方法。
 
 
@@ -609,7 +751,7 @@ steps:
         卸载只有一个方法：
 
 
-        - componentWillUnmount()
+        - `componentWillUnmount()`
 
 
         componentWillUnmount 是当组件从 DOM 节点中卸载之前会调用的方法，我们一般在这里面销毁定时器等会导致内存泄露的内容。
@@ -724,7 +866,7 @@ steps:
 
 
         这里的 `key` 值不会作为 [props](#props) 传递给子组件，React 会在编译组件时将 `key` 值从 props
-        中排除，即最终我们的第一个 Todo 组件的 props 如下：
+        中排除，即最终我们的第一个 Todo 组件的 `props` 如下：
 
 
         ```JavaScript
@@ -760,8 +902,7 @@ steps:
 
 
             这里我们通过给 `li` 元素的 `style` 属性赋值一个对象来实现在 JSX 中设置元素的 CSS
-            属性，我们可以通过同样的方式设置任何 CSS 属性，只不过有一点需要做一下改变，就是像  `background-color`
-            这样的属性，要写成驼峰式 `backgroundColor`。
+            属性，我们可以通过同样的方式设置任何 CSS 属性：
 
 
             ```JavaScript
@@ -773,13 +914,26 @@ steps:
             ```
 
 
+
+            ::: warning
+
+            **注意**
+
+
+            这里有一点需要做一下改变，就是像  `background-color` 这样的属性，要写成驼峰式
+            `backgroundColor`。对应的比如 `font-size`，也要写成 `fontSize`。
+
+            :::
+
+
+
             保存代码，你应该可以在浏览器中看到如下内容：
 
 
             ![](tuture-assets/image-fb5aa12d4320c007.png)
 
 
-            我们看到浏览器中的效果确实是在偶数项（数组中 0 和 2 项）变成了红色的字体，而（数组中国 1 和 3 项）还是之前的黑色样式。
+            我们看到浏览器中的效果确实是在偶数项（数组中 0 和 2 项）变成了红色的字体，而（数组中 1 和 3 项）还是之前的黑色样式。
     explain:
       pre: >+
         在 React 中，我们可以根据不同的情况，渲染不同的内容，这也被成为条件渲染。
@@ -919,8 +1073,19 @@ steps:
             这是因为当我们在输入框里面输入内容时，我们使用了输入框的值更新 `this.state.nowTodo`，然后在输入框之下展示
             `this.state.nowTodo` 的值。
     explain:
-      pre: >-
+      pre: >
         在 React 元素中处理事件和在 HTML 中类似，就是写法有点不一样。
+
+
+        ### JSX 中的事件处理
+
+
+        这里的不一样主要包含以下两点：
+
+
+        - React 中的事件要使用驼峰式命名：`onClick`，而不是全小写：`onclick`。
+
+        - 在 JSX 中，你传递的是一个事件处理函数，而不是一个字符串。
 
 
         在 HTML 中，我们处理事件是这样的：
@@ -955,15 +1120,74 @@ steps:
         注意到我们在上面定义了一个函数式组件，然后返回一个按钮，并在按钮上面定义了点击事件和对应的处理方法。
 
 
-        在 React 中，我们需要将 HTML 中的 `onclick` 换成驼峰式的 `onClick`，然后在事件处理方法里面不能直接使用
-        `handleclick()`，而是传递一个函数 `handleClick`。
+
+        ::: warning
+
+        **注意**
+
+
+        这里我们的的点击事件使用了驼峰式的 `onClick` 来命名，并且在 JSX 中传给事件的属性是一个函数：`handleClick`
+        ，而不是之前 HTML 中单纯的一个字符串：`"handleClick()"`。
+
+        :::
+
+
+        ### 合成事件
+
+
+        我们在以前编写 HTML 的事件处理时，特别是在处理表单时，常常需要禁用浏览器的默认属性。
+
+
+
+        ::: info
+
+        **提示**
+
+
+        比如一般表单提交时都会刷新浏览器，但是我们有时候希望提交表单之后不刷新浏览器，所以我们需要禁用浏览器的默认属性。
+
+        :::
+
+
+        在 HTML 中我们禁用事件的默认属性是通过调用定义在事件上的 `preventDefault` 或者设置事件的 `cancelBubble`：
+
+
+        ```JavaScript
+
+        // 当点击某个链接之后，禁止打开页面
+
+        document.getElementById("myAnchor").addEventListener("click",
+        function(event){
+          event.preventDefault()
+        });
+
+        ```
+
+
+        在 JSX 中，事件处理和这个类似：
+
+
+        ```JavaScript
+
+        function Link() {
+          function handleClick(event)  {
+            event.preventDefault();
+            console.log('链接被点击了，但是它不会跳转页面，因为默认行为被禁用了');
+          }
+
+          return (
+            <a onClick={handleClick} href="https://tuture.co">点我</a>
+          )
+        }
+
+        ```
   - name: 表单
     commit: 8619e9f
     diff:
       - file: src/index.js
         display: true
         explain:
-          pre: 我们修改 `src/index.js` 文件内容如下：
+          pre: ''
           post: >+
             上面的变化主要有三个部分：
 
@@ -1020,7 +1244,7 @@ steps:
 
 
             做得好！我们希望你现在已经对 React 的运行机制有了一个比较完整的了解，也希望本篇教程能够为你踏入 React
-            开发世界的提供一个好的开始！感谢你的阅读！
+            开发世界提供一个好的开始！感谢你的阅读！
 
     explain:
       pre: |-
