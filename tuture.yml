@@ -14,7 +14,7 @@ categories:
 github: 'https://github.com/pftom/react-quickstart-tutorial'
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-12-04T08:44:59.384Z
+updated: 2019-12-04T11:08:52.424Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -553,7 +553,8 @@ steps:
 
 
         ```JavaScript
-          constructor(props) {
+
+        constructor(props) {
             super(props);
 
             this.state = {
@@ -698,12 +699,10 @@ steps:
         - 卸载（Unmounting）
 
 
-        我们可以通过下面的嵌入网页查看一下具体的生命周期的图示：
+        一个简化版的生命周期的图示是这样的：
 
 
-        <iframe id="lifecycle"
-        src="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"
-        style="width: 100%; height: 700px;"> </iframe>
+        ![](tuture-assets/image-8c0b915b0ef1289a.png)
 
 
 
@@ -713,6 +712,9 @@ steps:
 
 
         React 生命周期相对而言比较复杂，我们这里不会详细讲解每个部分，上面的图示用户可以试着了解一下，对它有个大概的印象。
+
+
+        查看完整版的生命周期图示请参考这个链接：[点击查看](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)。
 
         :::
 
