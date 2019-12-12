@@ -14,7 +14,7 @@ categories:
 github: 'https://github.com/pftom/react-quickstart-tutorial'
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
 created: '2019-11-18T14:01:30.319Z'
-updated: 2019-12-12T10:58:32.015Z
+updated: 2019-12-12T13:17:31.956Z
 steps:
   - name: 'Hello, World'
     commit: a491123
@@ -1270,3 +1270,11 @@ steps:
         - 允许用户对单个事项进行修改。
 
         - 允许用户对待办事项进行搜索。
+
+
+        ::: primary
+
+        此教程属于[React
+        前端工程师学习路线](https://github.com/tuture-dev/react-roadmap)的一部分，点击可查看全部内容。
+
+        :::
