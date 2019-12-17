@@ -1,6 +1,10 @@
 name: 一杯茶的时间，上手 React 框架开发
 description: >-
-  React（也被称为 React.js 或者 ReactJS）是一个用于构建用户界面的 JavaScript 库。起源于 Facebook 内部项目，最初用来架设 Instagram 的网站，并于 2013 年 5 月开源。React 性能较高，并且它的声明式、组件化特性让编写代码变得简单，随着 React 社区的发展，越来越多的人投入 React 的学习和开发，使得 React 不仅可以用来开发 Web 应用，还能开发桌面端应用，TV应用，VR应用，IoT应用等，因此 React 还具有一次学习，随处编写的特性。本教程将带你快速入门 React 开发，通过 20-30 分钟的学习，你不仅可以了解 React 的基础概念，而且能开发出一个待办事项小应用，还在想什么了？马上学起来吧
+  React（也被称为 React.js 或者 ReactJS）是一个用于构建用户界面的 JavaScript 库。起源于 Facebook
+  内部项目，最初用来架设 Instagram 的网站，并于 2013 年 5 月开源。React 性能较高，并且它的声明式、组件化特性让编写代码变得简单，随着
+  React 社区的发展，越来越多的人投入 React 的学习和开发，使得 React 不仅可以用来开发 Web
+  应用，还能开发桌面端应用，TV应用，VR应用，IoT应用等，因此 React 还具有一次学习，随处编写的特性。本教程将带你快速入门 React 开发，通过
+  20-30 分钟的学习，你不仅可以了解 React 的基础概念，而且能开发出一个待办事项小应用，还在想什么了？马上学起来吧
 topics:
   - React
 categories:
@@ -9,6 +13,7 @@ categories:
   - 入门
 github: "https://github.com/pftom/react-quickstart-tutorial"
 id: 2893d2fa107ef1cdd4afc2a22e9f4e32
+cover: tuture-assets/cover.png
 created: "2019-11-18T14:01:30.319Z"
 updated: 2019-12-12T13:17:31.956Z
 steps:
