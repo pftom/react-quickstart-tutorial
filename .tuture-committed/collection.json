@@ -5,8 +5,14 @@
   "cover": "tuture-assets/cover.png",
   "created": "2019-11-18T14:01:30.319Z",
   "github": "https://github.com/pftom/react-quickstart-tutorial",
-  "topics": ["React"],
-  "categories": ["前端", "React", "入门"],
+  "topics": [
+    "React"
+  ],
+  "categories": [
+    "前端",
+    "React",
+    "入门"
+  ],
   "articles": [
     {
       "name": "一杯茶的时间，上手 React 框架开发",
@@ -14,8 +20,14 @@
       "id": "07acf61",
       "cover": ".tuture/assets/cover.png",
       "created": "2019-11-18T14:01:30.319Z",
-      "topics": ["React"],
-      "categories": ["前端", "React", "入门"]
+      "topics": [
+        "React"
+      ],
+      "categories": [
+        "前端",
+        "React",
+        "入门"
+      ]
     }
   ],
   "steps": [
@@ -1516,7 +1528,11 @@
               "type": "diff-block",
               "file": "src/index.js",
               "commit": "517171b",
-              "hiddenLines": [0, 1, 18],
+              "hiddenLines": [
+                0,
+                1,
+                18
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -2138,7 +2154,11 @@
               "type": "diff-block",
               "file": "src/index.js",
               "commit": "fa38333",
-              "hiddenLines": [25, 26, 27],
+              "hiddenLines": [
+                25,
+                26,
+                27
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -2634,7 +2654,15 @@
               "type": "diff-block",
               "file": "src/index.js",
               "commit": "4e765ff",
-              "hiddenLines": [0, 1, 10, 11, 26, 27, 28],
+              "hiddenLines": [
+                0,
+                1,
+                10,
+                11,
+                26,
+                27,
+                28
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -3705,7 +3733,12 @@
               "type": "diff-block",
               "file": "src/index.js",
               "commit": "6ed0b12",
-              "hiddenLines": [8, 47, 48, 49],
+              "hiddenLines": [
+                8,
+                47,
+                48,
+                49
+              ],
               "children": [
                 {
                   "type": "paragraph",
